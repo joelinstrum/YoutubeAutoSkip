@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube Auto Skip",
+  "version": "1.4.0",
+  "description": "Clicks available YouTube ad Skip buttons, with a status popup.",
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "YouTube Auto Skip status"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.youtube.com/*",
+        "https://m.youtube.com/*",
+        "https://youtube.com/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "scripting",
+    "debugger"
+  ],
+  "host_permissions": [
+    "https://www.youtube.com/*",
+    "https://m.youtube.com/*",
+    "https://youtube.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "minimum_chrome_version": "106"
+}
